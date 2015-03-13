@@ -1,3 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render_to_response
+from CodeAndo.models import *
 
-# Create your views here.
+def index():
+    return render_to_response()

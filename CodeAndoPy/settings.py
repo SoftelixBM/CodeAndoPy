@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'CodeAndo',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -53,13 +54,21 @@ ROOT_URLCONF = 'CodeAndoPy.urls'
 WSGI_APPLICATION = 'CodeAndoPy.wsgi.application'
 
 
+TEMPLATE_DIR = {
+    BASE_DIR+"/plantillas/"
+}
+
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'codeando',
+        'USER': 'root',
+        'PASSWORD': 'canaima',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -80,4 +89,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
+STATICFILES_DIRS = (
+    BASE_DIR+"/static/",
+)
 STATIC_URL = '/static/'
